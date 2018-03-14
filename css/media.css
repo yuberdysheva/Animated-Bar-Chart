@@ -1,0 +1,36 @@
+/* Стандартные стили для вольного хтмл - мобильная версия */
+
+@media screen and (max-width: 999px) {
+
+    .slide:not(.slide_type_cover) {
+        margin-top: 20px;
+    }
+
+    .cut__body {
+        margin: 0 -20px;
+        padding: 20px;
+    }
+
+    .column-wrapper {
+        margin: 0 20px;
+        max-width: 100%;
+    }
+
+    .title-wrapper {
+        padding-top: 30px;
+        max-width: 100%;
+    }
+
+    .title-wrapper__title {
+        max-width: 90%;
+        font-size: 24px;
+        line-height: 27px;
+        margin: 0 0 22px;
+    }
+
+    .text-pane {
+        font-size: 14px;
+        line-height: 20px;
+    }
+
+}

@@ -1,0 +1,24 @@
+/* Специальные стили, акутальные только для этого проекта, например: */
+
+.buttons-wrapper, .radio-group, .infopane {
+    margin-bottom: 12px;
+}
+
+.body {
+    position: relative;
+}
+
+.bar {
+    fill: steelblue;
+    fill-opacity: .9;
+}
+
+.axis path, .x.axis line {
+    display: none;
+}
+
+.x.axis .line-bottom {
+    stroke: black;
+    stroke-width: 2.5px;
+    display: block;
+}

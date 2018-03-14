@@ -1,0 +1,278 @@
+* {
+    box-sizing: border-box;
+}
+
+html {
+    font: 13px/18px "YS Text Web", arial, sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-stretch: normal;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ====
+   TEXT
+   ==== */
+.title {
+    margin: 0 0 19px;
+    font-size: 17px;
+    line-height: 20px;
+    letter-spacing: .02em;
+    font-weight: 700;
+}
+
+.subtitle {
+    margin-bottom: 20px;
+}
+
+.minor-text {
+    font-size: 11px;
+    line-height: 13px;
+}
+
+.axis-figure {
+    font-size: 11px;
+    letter-spacing: .02em;
+}
+
+.axis-text {
+    font-size: 10px;
+    line-height: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #555150;
+}
+
+.footer {
+    margin-top: 20px;
+    font-size: 9px;
+    line-height: 13px;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+    color: #555150;
+}
+
+/* =======
+   BUTTONS
+   ======= */
+.button {
+    display: inline-block;
+    padding: 0 13px;
+    cursor: pointer;
+    font: 13px/28px arial, sans-serif;
+    border-radius: 3px;
+    border: rgba(0, 0, 0, 0.15) solid 1px;
+}
+
+.button:not(:last-child) {
+    margin-right: 6px;
+}
+
+.button_active {
+    background-color: #ffdb4d;
+    border: #ffdb4d solid 1px;
+    cursor: default;
+}
+
+/* ===========
+   RADIO GROUP
+   =========== */
+.radio-group {
+    display: flex;
+}
+
+.radio-group__button {
+    display: inline-block;
+    padding: 0 13px;
+    border: #cacaca solid 1px;
+    border-right: none;
+    font: 13px/26px arial, sans-serif;
+    cursor: pointer;
+    background-color: white;
+}
+
+.radio-group__button:first-child {
+    border-radius: 3px 0 0 3px;
+}
+
+.radio-group__button:last-child {
+    border-radius: 0 3px 3px 0;
+    border-right: #cacaca solid 1px;
+}
+
+.radio-group__button_active {
+    background-color: #ffeba0;
+    cursor: default;
+}
+
+/* =====
+   LISTS
+   ===== */
+ol, ul {
+    padding: 0;
+    list-style-type: none;
+}
+
+.list-number {
+    font-size: 10px;
+    font-weight: 700;
+}
+
+/* ========
+   INFOPANE
+   ======== */
+.infopane {
+    position: relative;
+    max-width: 320px;
+    padding: 4px;
+    background-color: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(203, 203, 203, 0.5);
+}
+
+.infopane__cancel-icon-wrapper {
+    display: none;
+}
+
+.infopane-cut-wrapper {
+    display: none;
+}
+
+
+
+@media (max-width: 768px) {
+    .infopane-cut-wrapper {
+        display: block;
+        position: relative;
+    }
+
+    .infopane {
+        width: 100%;
+        box-shadow: inset 0 0 0 7px #ffcc00;
+        border: none;
+        padding: 17px 20px 17px 17px;
+        z-index: 5;
+    }
+
+    .infopane-cut-wrapper .infopane {
+        display: none;
+    }
+
+    .infopane__cancel-icon-wrapper, .infopane__help-icon {
+        display: block;
+        position: absolute;
+        top: 0;
+        right: 0;
+        height: 25px;
+        width: 25px;
+        background-color: #ffcc00;
+    }
+
+    .infopane__cancel-icon-wrapper {
+        padding: 6px;
+    }
+
+    .infopane__cancel-icon {
+        width: 100%;
+        height: 100%;
+        background-image: url('../i/cancel.svg');
+        background-size: contain;
+    }
+
+    .infopane__help-icon {
+        position: absolute;
+        font-size: 14px;
+        font-weight: 100;
+        text-align: center;
+        line-height: 26px;
+        border: 1px solid rgba(255, 160, 44, .5);
+    }
+}
+
+
+/* =========
+   PRELOADER
+   ========= */
+.preloader {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+}
+
+.preloader_spinner {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    background-image: url('../i/preloader.png'); /* you can use white preloader for dark backgrounds (i/preloader_white.png) */
+    background-size: contain;
+    left: 50%;
+    top: 50%;
+    margin: -15px 0 0 -15px; /* half of width and height */
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===========================
+   SHARE BUTTONS FONT-AWESOME
+   =========================== */
+.share {
+    color: white;
+    display: flex;
+}
+
+.share i {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+    text-align: center;
+    line-height: 40px;
+    color: #FECD00;
+}
+
+.fa-telegram {
+    font-size: 20px !important;
+}
+
+/* горизонтальные поделяшки с рамкой */
+.share_horizontal {
+    height: 40px;
+    width: 200px;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.share_horizontal i:hover {
+    color: #FE8500;
+}
+
+.share_horizontal i {
+    background: white;
+    border: 1px solid #FECD00;
+    border-right: none;
+}
+
+.share_horizontal a:last-child i {
+    border-right: 1px solid #FECD00;
+}
+
+/* вертикальные поделяшки без рамки */
+.share_vertical {
+    width: 40px;
+    height: 200px;
+    flex-wrap: wrap;
+}
+
+.share_vertical i{
+    background: #FECD00;
+    color: white;
+}
+
+.share_vertical i:hover {
+    background: #FE8500;
+}
