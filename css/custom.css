@@ -22,3 +22,13 @@
     stroke-width: 2.5px;
     display: block;
 }
+
+.y.axis line {
+    stroke: black;
+    opacity: .15;
+    display: block;
+}
+
+#categories {
+    outline: none;
+}

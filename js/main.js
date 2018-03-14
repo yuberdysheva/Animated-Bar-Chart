@@ -10,6 +10,7 @@ function main () {
     $('.preloader').remove();
     d3.tsv('data/categories-data.tsv', function (categoriesData) {
         var dataSetInit = [];
+        /*var max = 0;*/
         /*function createMegaData(src, name) {
             return src.map(function(x, i) {
                 var obj = {};
@@ -29,6 +30,9 @@ function main () {
         categoriesData.forEach(function (d) {
             categoriesArr.forEach(function (category) {
                 d[category] = parseFloat(d[category]);
+               /* if(d[category] >= max) {
+                    max = d[category];
+                }*/
             });
             dataSetInit.push(d['АЗС']);
         });
@@ -41,13 +45,12 @@ function main () {
             var dataSet = [];
             categoriesData.forEach(function (d) {
                 dataSet.push(d[[value]]);
-                //dataSetInit.push(d['АЗС']);
             });
             change(dataSet);
         }
 
         //описываем размеры svg
-        var margin = {top: 30, right: 0, bottom: 40, left: 40};
+        var margin = {top: 50, right: 0, bottom: 40, left: 40};
         var width = 600 - margin.left - margin.right;
         var height = 440 - margin.top - margin.bottom;
         var formatPercent = d3.format("");
@@ -63,9 +66,11 @@ function main () {
         var yAxis = d3.svg.axis()
             .scale(y)
             .orient('left')
-            .tickFormat(formatPercent);
+            .tickFormat(formatPercent)
+            .ticks(5);
 
         x.domain(days.map(function (d) {return d; }));
+        y.domain([0, 25]);
 
 
         //добавляем svg
@@ -80,10 +85,24 @@ function main () {
             .attr('transform', 'translate(0,' + height + ')')
             .call(xAxis);
 
+        var yLine = svg.append('g')
+            .attr('class', 'y axis')
+            .call(yAxis)
+            .append('text')
+            .attr('y', -15)
+            .attr('x', 10)
+            .text('Доля от всех запросов за неделю, %');
+
+        svg.selectAll('.x.axis .tick text')
+            .attr('class', 'axis-text');
+        svg.selectAll('.y.axis .tick text')
+            .attr('class', 'axis-figure');
+        svg.selectAll('.y.axis .tick line').attr('x2', 9).attr('x1', width);
+
         xLine.append('line')
             .attr('class', 'line-bottom')
             .attr('x1', 9)
-            .attr('x2', width )
+            .attr('x2', width)
             .attr('y1', 1)
             .attr('y2', 1);
 
@@ -91,17 +110,17 @@ function main () {
 
         function change(dataset) {
 
-
-            y.domain([0, d3.max(dataset, function (d) { return d*100 })]);
+            /*y.domain([0, d3.max(dataset, function (d) { return d * 100 + 2 })]);
             svg.select('.y.axis').remove();
-
             svg.append('g')
                 .attr('class', 'y axis')
                 .call(yAxis)
                 .append('text')
-                .attr('y', -5)
+                .attr('y', -15)
                 .attr('x', 10)
                 .text('Доля от всех запросов за неделю, %');
+            svg.selectAll('.y.axis .tick text')
+                .attr('class', 'axis-figure');*/
 
             var bar = svg.selectAll('.bar')
                 .data(dataset, function (d, i) {
